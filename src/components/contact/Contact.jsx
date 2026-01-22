@@ -98,7 +98,8 @@ export default function Contact() {
                                     <h4>Phone</h4>
                                     <p>
                                         <a href="tel:+919847511422">098475 11422</a><br />
-                                        <a href="tel:+919847511488">098475 11488</a>
+                                        <a href="tel:+919847511488">098475 11488</a><br />
+                                        <a href="tel:+914852549422">0485 254 9422</a>
                                     </p>
                                 </div>
                             </div>

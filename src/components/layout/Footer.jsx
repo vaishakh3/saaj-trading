@@ -76,7 +76,7 @@ export default function Footer() {
                             </div>
                             <a href="tel:+919847511422" className="footer-link footer-contact-item">
                                 <Phone size={16} />
-                                <span>098475 11422, 098475 11488</span>
+                                <span>098475 11422, 098475 11488, 0485 254 9422</span>
                             </a>
                             <a href="mailto:saajtradingcompany@gmail.com" className="footer-link footer-contact-item">
                                 <Mail size={16} />
