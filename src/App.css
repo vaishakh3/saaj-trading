@@ -53,6 +53,8 @@
   .footer-contact-item {
     justify-content: center;
     text-align: center;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .footer-contact-item span {
