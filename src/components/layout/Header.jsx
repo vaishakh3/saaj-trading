@@ -62,7 +62,7 @@ export default function Header() {
             <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
                 <div className="container">
                     <div className="header-content">
-                        <Link to="/" className="logo">
+                        <Link to="/" className="header-logo">
                             <img
                                 src="/logo.png"
                                 alt="Saaj Trading Logo"

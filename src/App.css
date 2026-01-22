@@ -11,9 +11,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -22,6 +24,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -39,4 +42,52 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* ============================= */
+/* Header Logo Styles            */
+/* ============================= */
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  padding: 0;
+  /* override Vite defaults */
+}
+
+.header-logo img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+
+.header.scrolled .header-logo img {
+  height: 36px;
+}
+
+.header-logo .logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.header-logo .logo-name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: inherit;
+}
+
+.header-logo .logo-tagline {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* Mobile polish */
+@media (max-width: 640px) {
+  .header-logo .logo-tagline {
+    display: none;
+  }
 }
