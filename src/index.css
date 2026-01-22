@@ -3169,8 +3169,8 @@ ol {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    text-align: left;
-    flex-wrap: nowrap;
+    text-align: center;
+    flex-wrap: wrap;
   }
 
   .footer-contact-item svg {
