@@ -62,18 +62,13 @@ export default function Header() {
             <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
                 <div className="container">
                     <div className="header-content">
-                        <Link to="/" className="header-logo">
-                            <img
-                                src="/logo.png"
-                                alt="Saaj Trading Logo"
-                                className="logo-image"
-                            />
+                        <Link to="/" className="logo">
+                            <div className="logo-icon">ST</div>
                             <div className="logo-text">
                                 <span className="logo-name">Saaj Trading</span>
                                 <span className="logo-tagline">Wholesale Toy Distributor</span>
                             </div>
                         </Link>
-
 
                         <nav className="nav-links">
                             {navLinks.map((link) => (
