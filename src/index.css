@@ -231,6 +231,13 @@ ol {
   box-shadow: var(--shadow-lg);
 }
 
+.logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  object-fit: contain;
+}
+
 .logo-text {
   display: flex;
   flex-direction: column;
