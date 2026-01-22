@@ -44,7 +44,7 @@
   color: #888;
 }
 
-/* ✅ Mobile footer contact centering (FINAL FIX) */
+/* Mobile footer contact centering — HARD RESET */
 @media (max-width: 768px) {
   .footer-contact-links {
     align-items: center;
@@ -54,20 +54,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* 🔑 true visual centering */
     justify-content: center;
-    text-align: center;
+
+    /* 🔥 reset desktop spacing */
+    padding-left: 0 !important;
+    margin-left: 0 !important;
     gap: 0.5rem;
+
+    text-align: center;
   }
 
   .footer-contact-item svg {
     margin: 0 auto;
-    /* 🔑 centers icon */
   }
 
   .footer-contact-item span {
-    max-width: 90%;
     margin: 0 auto;
+    padding: 0;
+    max-width: 85%;
     text-align: center;
   }
 }
