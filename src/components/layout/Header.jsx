@@ -63,12 +63,17 @@ export default function Header() {
                 <div className="container">
                     <div className="header-content">
                         <Link to="/" className="logo">
-                            <div className="logo-icon">ST</div>
+                            <img
+                                src="/logo.png"
+                                alt="Saaj Trading Logo"
+                                className="logo-image"
+                            />
                             <div className="logo-text">
                                 <span className="logo-name">Saaj Trading</span>
                                 <span className="logo-tagline">Wholesale Toy Distributor</span>
                             </div>
                         </Link>
+
 
                         <nav className="nav-links">
                             {navLinks.map((link) => (
