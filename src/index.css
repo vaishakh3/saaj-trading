@@ -3166,11 +3166,12 @@ ol {
 
   .footer-contact-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     gap: 0.5rem;
     text-align: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    width: 100%;
   }
 
   .footer-contact-item svg {
