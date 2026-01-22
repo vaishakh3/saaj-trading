@@ -67,7 +67,7 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    <div>
+                    <div className="footer-contact-section">
                         <h4 className="footer-title">Contact Info</h4>
                         <div className="footer-links footer-contact-links">
                             <div className="footer-link footer-contact-item">
