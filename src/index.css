@@ -3945,3 +3945,47 @@ ol {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+/* Mobile Optimizations for Manual Order Modal */
+@media (max-width: 640px) {
+  .modal {
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding: 1rem;
+  }
+
+  .item-controls-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .item-total-price {
+    grid-column: 1 / -1;
+    text-align: right;
+    padding-top: 0.5rem;
+    border-top: 1px dashed var(--gray-200);
+  }
+
+  .price-override-group,
+  .qty-picker {
+    width: 100%;
+  }
+
+  .qty-picker {
+    height: 42px; /* Match typical input height */
+  }
+
+  .price-input {
+    padding: 6px 8px;
+  }
+  
+  .selected-item-top {
+      align-items: flex-start;
+  }
+}
