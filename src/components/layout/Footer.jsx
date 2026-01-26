@@ -28,7 +28,7 @@ export default function Footer() {
                 <div className="footer-content">
                     <div className="footer-brand">
                         <div className="logo">
-                            <div className="logo-icon">ST</div>
+                            <img src="/logo.png" alt="Saaj Trading" className="logo-img" />
                             <div className="logo-text">
                                 <span className="logo-name">Saaj Trading</span>
                                 <span className="logo-tagline">Wholesale Toy Distributor</span>
@@ -39,14 +39,8 @@ export default function Footer() {
                             value to retailers, e-commerce sellers, and distributors.
                         </p>
                         <div className="footer-socials">
-                            <a href="https://facebook.com" className="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                                <Facebook size={20} />
-                            </a>
-                            <a href="https://instagram.com" className="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <a href="https://www.instagram.com/saajtradingcompany" className="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                                 <Instagram size={20} />
-                            </a>
-                            <a href="https://twitter.com" className="social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                                <Twitter size={20} />
                             </a>
                         </div>
                     </div>

@@ -142,7 +142,7 @@ export default function AdminDashboard() {
             {/* Sidebar */}
             <aside className={`admin-sidebar ${sidebarOpen ? 'open' : ''}`}>
                 <div className="admin-logo">
-                    <div className="logo-icon" style={{ width: '40px', height: '40px', fontSize: '1rem' }}>ST</div>
+                    <img src="/logo.png" alt="Saaj Trading" style={{ width: '40px', height: '40px', objectFit: 'contain', borderRadius: 'var(--radius-md)' }} />
                     <div className="logo-text">
                         <span className="logo-name">Saaj Trading</span>
                     </div>
