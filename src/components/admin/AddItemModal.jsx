@@ -199,7 +199,7 @@ export default function AddItemModal({ isOpen, onClose, editingItem, categories,
                         </button>
                     </div>
 
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} className="modal-content-form">
                         <div className="modal-body">
                             {/* Image Upload */}
                             <div className="form-group">
