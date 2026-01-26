@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { collection, query, orderBy, onSnapshot, doc, updateDoc, deleteDoc } from 'firebase/firestore';
+import { collection, query, orderBy, onSnapshot, doc, updateDoc, deleteDoc, addDoc, increment } from 'firebase/firestore';
 import { db } from '../services/firebase';
 import toast from 'react-hot-toast';
 
@@ -66,10 +66,45 @@ export function useOrders() {
         }
     };
 
+    const createManualOrder = async (orderData) => {
+        if (!db) return;
+
+        try {
+            // 1. Save order to Firestore
+            await addDoc(collection(db, 'orders'), {
+                ...orderData,
+                status: 'pending',
+                createdAt: new Date(),
+                updatedAt: new Date(),
+            });
+
+            // 2. Update inventory counts for each item
+            for (const item of orderData.items) {
+                try {
+                    const itemRef = doc(db, 'inventory', item.id);
+                    await updateDoc(itemRef, {
+                        count: increment(-item.quantity),
+                        updatedAt: new Date(),
+                    });
+                } catch (inventoryError) {
+                    console.error(`Failed to update inventory for ${item.name}:`, inventoryError);
+                    // Continue with other items even if one fails
+                }
+            }
+
+            toast.success('Manual order created successfully');
+        } catch (error) {
+            console.error('Error creating manual order:', error);
+            toast.error('Failed to create order');
+            throw error;
+        }
+    };
+
     return {
         orders,
         loading,
         updateOrderStatus,
         deleteOrder,
+        createManualOrder,
     };
 }

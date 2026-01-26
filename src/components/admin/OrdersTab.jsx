@@ -10,10 +10,12 @@ import {
     Truck,
     XCircle,
     ChevronDown,
-    Eye
+    Eye,
+    Plus
 } from 'lucide-react';
 import { useOrders } from '../../hooks/useOrders';
 import ConfirmModal from '../common/ConfirmModal';
+import CreateOrderModal from './CreateOrderModal';
 
 const STATUS_OPTIONS = [
     { value: 'pending', label: 'Pending', color: '#F59E0B', icon: Clock },
@@ -29,6 +31,7 @@ export default function OrdersTab() {
     const [statusFilter, setStatusFilter] = useState('all');
     const [confirmDelete, setConfirmDelete] = useState(null);
     const [expandedOrder, setExpandedOrder] = useState(null);
+    const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
 
     // Filter orders
     const filteredOrders = orders.filter((order) => {
@@ -141,16 +144,28 @@ export default function OrdersTab() {
                     </select>
                 </div>
 
-                <motion.button
-                    className="btn btn-secondary"
-                    onClick={exportToCSV}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    disabled={filteredOrders.length === 0}
-                >
-                    <Download size={18} />
-                    Export CSV
-                </motion.button>
+                <div style={{ display: 'flex', gap: '1rem' }}>
+                    <motion.button
+                        className="btn btn-secondary"
+                        onClick={exportToCSV}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        disabled={filteredOrders.length === 0}
+                    >
+                        <Download size={18} />
+                        Export CSV
+                    </motion.button>
+
+                    <motion.button
+                        className="btn btn-primary"
+                        onClick={() => setIsCreateModalOpen(true)}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                    >
+                        <Plus size={18} />
+                        Create Manual Order
+                    </motion.button>
+                </div>
             </div>
 
             {/* Orders List */}
@@ -304,7 +319,8 @@ export default function OrdersTab() {
                         })}
                     </AnimatePresence>
                 </div>
-            )}
+            )
+            }
 
             {/* Confirm Delete Modal */}
             <ConfirmModal
@@ -316,6 +332,12 @@ export default function OrdersTab() {
                 confirmText="Delete"
                 cancelText="Cancel"
                 type="danger"
+            />
+
+            {/* Create Order Modal */}
+            <CreateOrderModal
+                isOpen={isCreateModalOpen}
+                onClose={() => setIsCreateModalOpen(false)}
             />
         </>
     );
