@@ -3945,6 +3945,14 @@ ol {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+/* Base customer grid (desktop) */
+.customer-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
 /* Mobile Optimizations for Manual Order Modal */
 @media (max-width: 640px) {
   .modal {
@@ -3958,8 +3966,15 @@ ol {
     padding: 1rem;
   }
 
+  /* Stack Name and Phone on mobile */
+  .customer-details-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
   .item-controls-grid {
-    grid-template-columns: 1fr 1fr;
+    /* Give price input more space (1.3fr) vs qty picker (1fr) */
+    grid-template-columns: 1.3fr 1fr;
     grid-template-rows: auto auto;
     gap: 0.75rem;
     align-items: flex-start;
@@ -3977,15 +3992,30 @@ ol {
     width: 100%;
   }
 
+  /* Compact quantity picker */
   .qty-picker {
-    height: 42px; /* Match typical input height */
+    height: 36px;
+    padding: 4px;
+    gap: 6px;
   }
 
-  .price-input {
-    padding: 6px 8px;
+  .qty-picker button {
+    width: 28px;
+    height: 28px;
   }
-  
+
+  .qty-value {
+    min-width: 20px;
+    font-size: 0.9rem;
+  }
+
+  /* Compact price input */
+  .price-input {
+    padding: 4px 8px;
+    height: 36px;
+  }
+
   .selected-item-top {
-      align-items: flex-start;
+    align-items: flex-start;
   }
 }

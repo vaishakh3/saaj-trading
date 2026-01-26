@@ -211,7 +211,7 @@ export default function CreateOrderModal({ isOpen, onClose }) {
 
                                     <div className="form-section customer-form-section" style={{ marginTop: '2rem' }}>
                                         <h4><User size={18} /> Customer Details</h4>
-                                        <div className="form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                                        <div className="form-row customer-details-grid">
                                             <div className="form-group">
                                                 <div className="label-with-icon">
                                                     <User size={14} />
