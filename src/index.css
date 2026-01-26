@@ -2109,7 +2109,7 @@ ol {
   gap: 0.25rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .header-mobile-actions {
     display: none;
   }
