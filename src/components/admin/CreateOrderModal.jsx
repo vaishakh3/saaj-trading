@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Search, Plus, Minus, Trash2, Package, ShoppingBag, User, Phone, Mail, MapPin, AlertCircle, Tag } from 'lucide-react';
 import { useInventory } from '../../hooks/useInventory';
 import { useOrders } from '../../hooks/useOrders';
+import { sendOrderEmails } from '../../services/emailService';
 import toast from 'react-hot-toast';
 
 export default function CreateOrderModal({ isOpen, onClose }) {
@@ -32,7 +33,10 @@ export default function CreateOrderModal({ isOpen, onClose }) {
 
     // Totals calculation
     const subtotal = useMemo(() => {
-        return orderItems.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+        return orderItems.reduce((acc, item) => {
+            const price = parseFloat(item.price) || 0;
+            return acc + (price * item.quantity);
+        }, 0);
     }, [orderItems]);
 
     const total = Math.max(0, subtotal - discount);
@@ -72,7 +76,7 @@ export default function CreateOrderModal({ isOpen, onClose }) {
 
     const handleUpdatePrice = (id, newPrice) => {
         setOrderItems(orderItems.map(item =>
-            item.id === id ? { ...item, price: parseFloat(newPrice) || 0 } : item
+            item.id === id ? { ...item, price: newPrice === '' ? '' : newPrice } : item
         ));
     };
 
@@ -105,6 +109,10 @@ export default function CreateOrderModal({ isOpen, onClose }) {
             };
 
             await createManualOrder(orderData);
+
+            // Send confirmation emails
+            await sendOrderEmails(orderData);
+
             onClose();
             resetForm();
         } catch (error) {
