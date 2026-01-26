@@ -3438,8 +3438,8 @@ ol {
 
 /* ===== COMPREHENSIVE RESPONSIVE STYLES ===== */
 
-/* Admin Dashboard - Mobile */
-@media (max-width: 768px) {
+/* Admin Dashboard - Mobile & Tablet */
+@media (max-width: 1023px) {
   .admin-layout {
     display: block;
   }
@@ -3932,19 +3932,6 @@ ol {
 }
 
 /* Tablet */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .admin-sidebar {
-    width: 220px;
-  }
-
-  .admin-layout {
-    grid-template-columns: 220px 1fr;
-  }
-
-  .inventory-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 
 /* Base customer grid (desktop) */
 .customer-details-grid {
